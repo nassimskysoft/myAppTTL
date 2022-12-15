@@ -1,0 +1,24 @@
+<head>
+  <title>myapp</title>
+</head>
+
+<body>
+  <h1>Welcome to myApp</h1>
+
+  {{> app}}
+</body>
+
+<template name="app">
+  <button id="add" class="primary">Export</button>
+  <button id="delete" class="error">Delete all</button>
+
+  <div class="card">
+    {{#each task in exports}}
+    <li>
+      {{#if task.finished}}<a href="{{task.url}}">{{task.url}}</a> {{else}}
+      <progress id="file" max="100" value="{{task.value}}"></progress>
+      {{task.value}}% {{/if}}
+    </li>
+    {{/each}}
+  </div>
+</template>
