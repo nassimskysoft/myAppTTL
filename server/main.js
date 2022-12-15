@@ -1,15 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import { TaskCollection } from '/imports/api/TaskCollection';
-
-function insertTask(taskText) {
-  return TaskCollection.insert({ text: taskText });
-}
+import { ExportCollection } from '../imports/api/ExportCollection';
 
 Meteor.startup(() => {
-  //TaskCollection.remove({});
-  /*if (TaskCollection.find().count() === 0) {
-    ['test1', 'test2', 'test3', 'test4', 'test5'].forEach(insertTask);
-  }*/
-  //  console.log(TaskCollection.find().fetch());
-  // code to run on server at startup
+  //init mongoDB si la collection n'existe pas pour créer la structure
+  if (ExportCollection.find().count() === 0) {
+    let id = ExportCollection.insert({ text: 'taskText' });
+    ExportCollection.remove({ _id: id });
+  }
 });

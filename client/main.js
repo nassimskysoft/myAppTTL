@@ -1,9 +1,9 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
-import '../imports/api/TaskCollection.js';
+import '../imports/api/ExportCollection.js';
 
-import { ExportCollection } from '/imports/api/TaskCollection';
+import { ExportCollection } from '../imports/api/ExportCollection';
 Template.app.onCreated(function helloOnCreated() {
   this.counter = new ReactiveVar(0);
   this.progression = new ReactiveVar(0);

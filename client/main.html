@@ -13,11 +13,12 @@
   <button id="delete" class="error">Delete all</button>
 
   <div class="card">
-    {{#each task in exports}}
+    {{#each export in exports}}
     <li>
-      {{#if task.finished}}<a href="{{task.url}}">{{task.url}}</a> {{else}}
-      <progress id="file" max="100" value="{{task.value}}"></progress>
-      {{task.value}}% {{/if}}
+      {{#if export.finished}}<a href="{{export.url}}">{{export.url}}</a>
+      {{else}}
+      <progress id="file" max="100" value="{{export.value}}"></progress>
+      {{export.value}}% {{/if}}
     </li>
     {{/each}}
   </div>
