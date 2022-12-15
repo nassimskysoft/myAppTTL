@@ -46,7 +46,6 @@ Template.app.events({
     }, 1000);
   },
   'click #delete'(event, instance) {
-    // increment the counter when button is clicked
     ExportCollection.find({})
       .fetch()
       .forEach((x) => {
